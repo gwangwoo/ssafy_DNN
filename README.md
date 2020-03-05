@@ -262,8 +262,39 @@ Y = np.dot(X,W)
 
 
 
+# 14강
+
+기계 학습의 문제:
+
+- 분류(classification)
+- 회귀(regression)
 
 
+** 신경망에서는 회귀에 사용하는 활성함수로 항등함수를 사용하며,
+   분류에 사용하는 활성함수는 소프트맥스 함수를 사용한다.
+
+![108](/img/108.png)
+
+[ 소프트 맥스 함수 정의 ]
+
+def softmax(a):
+    exp_a = np.exp(a)
+    sum_exp_a = np.sum(exp_a)
+    y = exp_a / sum_exp_a
+   
+    return y
+
+[ 개선된 소프트 맥스 함수 ]
+
+![109](/img/109.png)
+
+def softmax(a):
+    c = np.max(a)
+    exp_a = np.exp(a-c)
+    sum_exp_a = np.sum(a-c)
+    
+    y = exp_a / sum_exp_a
+    return y
 
 
 
