@@ -402,4 +402,23 @@ import tensorflow as tf
 #### 변수 : 그래프를 최적화하는 용도로 텐서플로가 학습한 결과를 갱신하기 위해 사용하는 것이 변수이다.(변수의 값들이 신경망의 성능을 좌우한다.)
 
 
+# 18강
+
+import tensorflow.compat.v1 as tf
+
+#### 플레이스 홀더 정의하기
+a = tf.placeholder(tf.int32,[3])
+
+#### 배열을 2배로 하는 연산 정의하기
+b = tf.constant(2)
+x2 = a*b
+
+sess = tf.Session()
+
+#### 플레이스 홀더에 값을 넣고 실행하기
+
+r1 = sess.run(x2, dic={a:1,2,3})
+
+
+
 
