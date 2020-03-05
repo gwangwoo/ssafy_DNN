@@ -281,7 +281,6 @@ def softmax(a):
     exp_a = np.exp(a)
     sum_exp_a = np.sum(exp_a)
     y = exp_a / sum_exp_a
-   
     return y
 
 [ 개선된 소프트 맥스 함수 ]
@@ -291,10 +290,42 @@ def softmax(a):
 def softmax(a):
     c = np.max(a)
     exp_a = np.exp(a-c)
-    sum_exp_a = np.sum(a-c)
-    
+    sum_exp_a = np.sum(exp_a)
     y = exp_a / sum_exp_a
     return y
 
 
+# 15강
+
+[ 소프트맥스 함수의 특징 ]
+
+
+import numpy as np
+
+### softmax func
+def softmax(a):
+    c = np.max(a)
+    exp_a = np.exp(a-c)
+    sum_exp_a = np.sum(exp_a)
+    y = exp_a / sum_exp_a
+    return y
+
+a = np.array([3.0,4.0,2.1,5.3,6.3])
+y = softmax(a)
+print(y)
+
+
+소프트 맥수 함수에 의한 출력은 0에서 1.0사이의 실수 값이 출력된다.
+이때의 출력밧의 총 합은 항상 1이 된다는 점이 소프트맥스 함수의 특징이다.
+이 특징은 이함수의 중요한 특성이다.
+
+즉, 이 출력값은 확률로 해석할 수 있다. 문제를 통계적으로 대응할 수 있다.
+
+<b>각 원소의 대소 관계는 소프트맥스 함수의 출력값과 동일하다.<b>
+
+신경망을 이용한 분류에서는 출력층의 소프트맥스 함수를 생략해도 무방하다.
+
+소프트 맥스 함수를 적용하지 않더라도 결과는 동일 하기 때문이다.
+
+현업에서는 실질적으로 지수 함수 계산에 드는 자원낭비를 줄일 수 있기 때문에 일반적으로 출력층에서의 소프트맥스 함수를 생략하여 사용한다.
 
