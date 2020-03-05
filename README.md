@@ -420,5 +420,8 @@ sess = tf.Session()
 r1 = sess.run(x2, dic={a:1,2,3})
 
 
+# 19강
+
+행렬의 자료형이 일치해야 한다.
 
 
